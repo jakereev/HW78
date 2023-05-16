@@ -116,5 +116,20 @@ namespace HW78.Controllers
 
             return View(statistics);
         }
+        public IActionResult MonthlyStatistics(int year, int month)
+        {
+            var statistics = _context.Expenses
+                .Where(e => e.Date.Year == year && e.Date.Month == month)
+                .GroupBy(e => e.CategoryId)
+                .Select(g => new ExpenseStatisticsViewModel
+                {
+                    CategoryId = g.Key,
+                    CategoryName = g.First().Category.Name,
+                    TotalAmount = g.Sum(e => e.Cost)
+                })
+                .ToList();
+
+            return View(statistics);
+        }
     }
 }
