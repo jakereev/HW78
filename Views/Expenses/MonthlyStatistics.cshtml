@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HW78.Models.Expense>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Monthly Statistics</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date.ToString("yyyy-MM-dd")</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Cost</td>
+                <td>@item.Comment</td>
+            </tr>
+        }
+    </tbody>
+</table>

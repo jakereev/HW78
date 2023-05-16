@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HW78.Models.Expense>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Expenses</h2>
+
+<a asp-action="Create">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Comment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Category.Name</td>
+                <td>@item.Cost</td>
+                <td>@item.Comment</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
