@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - My Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    @* Другие необходимые стили *@
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">My Application</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Expenses" asp-action="Index">Expenses</a></li>
+                <li><a asp-controller="ExpenseCategories" asp-action="Index">Expense Categories</a></li>
+                <li><a asp-controller="Expenses" asp-action="MonthlyStatistics">Monthly Statistics</a></li>
+            </ul>
+        </nav>
+        @RenderBody()
+    </div>
+    @* Другие необходимые скрипты *@
+</body>
+</html>
