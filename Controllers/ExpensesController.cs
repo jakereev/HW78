@@ -97,25 +97,7 @@ namespace HW78.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult MonthlyStatistics()
-        {
-            var startDate = DateTime.Now.AddMonths(-1);
-            var endDate = DateTime.Now;
-
-            var statistics = _context.Expenses
-                .Where(e => e.Date >= startDate && e.Date <= endDate)
-                .GroupBy(e => e.CategoryId)
-                .Select(g => new ExpenseStatisticsViewModel
-                {
-                    CategoryId = g.Key,
-                    CategoryName = g.First().Category.Name,
-                    TotalAmount = g.Sum(e => e.Cost)
-                })
-                .ToList();
-
-            return View(statistics);
-        }
+        
         public IActionResult MonthlyStatistics(int year, int month)
         {
             var statistics = _context.Expenses
@@ -132,4 +114,5 @@ namespace HW78.Controllers
             return View(statistics);
         }
     }
+
 }

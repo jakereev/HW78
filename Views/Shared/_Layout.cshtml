@@ -13,9 +13,10 @@
                 <a class="navbar-brand" href="/">My Application</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/Expenses/Index">Expenses</a></li>
-                <li><a href="/ExpenseCategories/Index">Expense Categories</a></li>
-                <li><a href="/Expenses/MonthlyStatistics">Monthly Statistics</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Expenses" asp-action="Index">Expenses</a></li>
+                <li><a asp-controller="ExpenseCategories" asp-action="Index">Expense Categories</a></li>
+                <li><a asp-controller="Expenses" asp-action="MonthlyStatistics">Monthly Statistics</a></li>
             </ul>
         </nav>
         @RenderBody()
